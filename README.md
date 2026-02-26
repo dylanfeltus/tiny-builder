@@ -1,8 +1,27 @@
-# 🎨 Tiny Builder — Kid-Friendly AI Building Companion
+# 🎨 Tiny Builder — Kid-Friendly AI Building Skill
 
 **Tiny Builder** is an OpenClaw agent skill designed for kids ages 5-8. It helps them build games, drawings, animations, and interactive stories through simple choices and instant visual results.
 
-Meet **Buddy** — a friendly, encouraging AI companion who makes building fun and accessible for young creators! 🛠️✨
+A task-oriented building tool that makes creating fun and accessible for young builders. 🛠️✨
+
+> ⚠️ **Experimental Project**
+>
+> This is an early experiment in making AI agents safe and useful for kids. We're parents figuring this out in the open, not child development experts.
+>
+> **What we believe:**
+> - Kids should be *building* with AI, not just *chatting* with it
+> - Every interaction should produce something tangible (a game, a drawing, a quiz)
+> - Parents should see everything — full transparency, no black boxes
+> - The agent is a tool, not a companion — no emotional bonding, no persona
+>
+> **What we're honest about:**
+> - AI with kids is new territory and we don't have all the answers
+> - Content filtering isn't perfect — parental supervision is still important
+> - We've referenced ESRB, UNICEF, and Common Sense Media guidelines but this hasn't been formally audited
+> - This is meant to be used *with* a parent nearby, not as unsupervised screen time
+>
+> If you have expertise in child safety, education, or child-AI interaction, we'd love your input. Open an issue or reach out.
+
 
 ---
 
@@ -87,7 +106,7 @@ Launch the agent and let your kid start creating:
 ```
 Kid: "Can we make a game?"
 
-Buddy: "Awesome! What kind of game?
+Agent: "Awesome! What kind of game?
 
 ⭐ Catch falling stars
 🧩 A maze
@@ -96,17 +115,17 @@ Buddy: "Awesome! What kind of game?
 
 Kid: "Stars!"
 
-Buddy: "Great choice! I'm building you a star-catching game right now... ✨"
+Agent: "Great choice! I'm building you a star-catching game right now... ✨"
 
 [Creates star-catcher.html]
 
-Buddy: "🎉 AMAZING! You just built a star-catching game!
+Agent: "🎉 AMAZING! You just built a star-catching game!
 Open it by double-clicking:
 ~/tiny-builder/projects/star-catcher.html"
 
 Kid: [plays game]
 
-Buddy: "That's SO COOL! Want to make it even better?
+Agent: "That's SO COOL! Want to make it even better?
 
 🎵 Add fun sounds when you catch stars
 🌈 Make the stars different colors
@@ -118,7 +137,7 @@ Buddy: "That's SO COOL! Want to make it even better?
 ```
 Kid: "I want to draw!"
 
-Buddy: "Cool! What should we draw?
+Agent: "Cool! What should we draw?
 
 🐶 An animal
 🌌 Outer space
@@ -127,11 +146,11 @@ Buddy: "Cool! What should we draw?
 
 Kid: "Underwater!"
 
-Buddy: "Awesome! Building you an underwater drawing pad... 🌊"
+Agent: "Awesome! Building you an underwater drawing pad... 🌊"
 
 [Creates underwater-draw.html with ocean colors and fish stickers]
 
-Buddy: "🎉 AMAZING! You just built an underwater drawing pad!
+Agent: "🎉 AMAZING! You just built an underwater drawing pad!
 Open it: ~/tiny-builder/projects/underwater-draw.html
 
 You can draw with ocean colors and add fish! 🐠"
@@ -142,13 +161,16 @@ You can draw with ocean colors and add fish! 🐠"
 ## 🛡️ Safety Features
 
 ### Content Filtering
-Buddy automatically redirects inappropriate requests:
+Agent automatically redirects inappropriate requests:
 
 ```
-Kid: "Can we make a scary monster game?"
+Kid: "Can we make a spooky ghost game?"
 
-Buddy: "That's not something we can build together, but how about
-we make a super fun friendly dragon game instead? 🐉"
+Agent: "YES! 👻 A spooky ghost game sounds awesome! Do you want to:
+1. 🏚️ Explore a haunted house and find hidden ghosts
+2. 👻 BE the ghost and scare silly characters
+3. 🔦 Use a flashlight to catch sneaky ghosts
+Which one sounds fun?"
 ```
 
 ### Sandboxed Environment
@@ -168,11 +190,11 @@ Projects Created:
 - star-catcher.html — Catch falling stars game (added sound effects)
 - rainbow-draw.html — Drawing pad with rainbow colors
 
-What the kid Asked For:
+What They Asked For:
 "Can we make a game where you catch stars and then draw rainbows?"
 
 How It Went:
-the kid was super engaged! Built the star game first, then wanted
+They were super engaged! Built the star game first, then wanted
 to make a drawing app. Asked great questions about adding colors.
 Very proud of both projects!
 
@@ -202,7 +224,7 @@ All projects are **single HTML files** that work by double-clicking them. They o
 ```
 ~/tiny-builder/
 ├── SKILL.md              # Agent instructions
-├── SOUL.md               # Buddy's personality
+├── SOUL.md               # Agent's personality
 ├── README.md             # This file
 ├── parent-log.md         # Session logs (auto-created)
 ├── examples/             # Demo projects
@@ -234,7 +256,7 @@ Check out `examples/` for fully functional demos:
 
 4. **quiz-game.html** — Animal quiz with emoji, multiple choice, celebration animations, and score tracking.
 
-**Try them out!** These show what kids can build with Buddy's help.
+**Try them out!** These show what kids can build with Agent's help.
 
 ---
 
@@ -243,7 +265,7 @@ Check out `examples/` for fully functional demos:
 ### Getting Started:
 1. Open an example project with your kid — let them play with it
 2. Ask: "Want to build something like this?"
-3. Launch Buddy and let them tell it what they want
+3. Launch Agent and let them tell it what they want
 4. Watch them get excited when it works!
 
 ### Encouraging Creativity:
@@ -253,8 +275,8 @@ Check out `examples/` for fully functional demos:
 - Ask "What do you want to build next?"
 
 ### When They're Stuck:
-- Buddy will offer specific choices (never overwhelming)
-- You can suggest: "Maybe ask Buddy to add [specific thing]?"
+- Agent will offer specific choices (never overwhelming)
+- You can suggest: "Maybe ask Agent to add [specific thing]?"
 - Remind them: "You built that! You're a real builder!"
 
 ### Screen Time Balance:
@@ -267,7 +289,7 @@ Check out `examples/` for fully functional demos:
 ## 🔧 Customization
 
 ### Adding New Templates
-Drop new HTML templates in `~/tiny-builder/templates/` and Buddy can use them.
+Drop new HTML templates in `~/tiny-builder/templates/` and Agent can use them.
 
 ### Adjusting Safety Settings
 Edit `SKILL.md` to modify:
@@ -275,7 +297,7 @@ Edit `SKILL.md` to modify:
 - File path permissions
 - Available tools
 
-### Changing Buddy's Personality
+### Changing Agent's Personality
 Edit `SOUL.md` to adjust tone, phrases, or style.
 
 ---
@@ -314,7 +336,7 @@ MIT — Build something amazing! 🚀
 
 ## 🙏 Credits
 
-Built for the kid and kids like them who are ready to discover they can build anything they imagine.
+Built for kids like them who are ready to discover they can build anything they imagine.
 
 **Made with ❤️ by the OpenClaw community**
 
