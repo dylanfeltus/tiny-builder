@@ -57,22 +57,19 @@ A task-oriented building tool that makes creating fun and accessible for young b
 ### 1. Set Up the Project Folder
 
 ```bash
+# Clone the repo
+git clone https://github.com/dylanfeltus/tiny-builder.git ~/tiny-builder
+
+# Create the projects folder (where kids' creations go)
 mkdir -p ~/tiny-builder/projects
-mkdir -p ~/tiny-builder/templates
-mkdir -p ~/tiny-builder/examples
 ```
 
-### 2. Install This Skill
+### 2. Add the Skill to Your Agent
 
-If using OpenClaw:
+In OpenClaw, point the agent's skill config to the cloned folder:
 
 ```bash
-# Clone this repo
-cd ~/Code
-git clone https://github.com/dylanfeltus/tiny-builder.git
-
-# Create or update your kid's agent configuration
-# Add skill path to agent config: ~/Code/tiny-builder
+# Add skill path to agent config: ~/tiny-builder
 ```
 
 Or manually copy `SKILL.md` and `SOUL.md` to your agent's skill directory.
@@ -84,7 +81,7 @@ In OpenClaw, create a new agent profile:
 ```yaml
 name: buddy
 skills:
-  - ~/Code/tiny-builder
+  - ~/tiny-builder
 model: claude-sonnet-4  # or your preferred model
 ```
 

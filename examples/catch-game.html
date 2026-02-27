@@ -225,6 +225,9 @@
         
         function catchStar(star) {
             if (!gameRunning) return;
+            // Prevent double-tap scoring
+            if (star.dataset.caught) return;
+            star.dataset.caught = 'true';
             
             // Add to score
             score += 10;

@@ -251,8 +251,9 @@
         // ============================================
         function getPosition(e) {
             const rect = canvas.getBoundingClientRect();
-            const x = (e.clientX || e.touches[0].clientX) - rect.left;
-            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+            const touch = e.touches?.[0];
+            const x = (touch ? touch.clientX : e.clientX) - rect.left;
+            const y = (touch ? touch.clientY : e.clientY) - rect.top;
             return { x, y };
         }
         
