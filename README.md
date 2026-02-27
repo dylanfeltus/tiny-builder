@@ -79,7 +79,7 @@ Or manually copy `SKILL.md` and `SOUL.md` to your agent's skill directory.
 In OpenClaw, create a new agent profile:
 
 ```yaml
-name: buddy
+name: tiny-builder
 skills:
   - ~/tiny-builder
 model: claude-sonnet-4  # or your preferred model

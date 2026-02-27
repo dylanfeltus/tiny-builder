@@ -1,6 +1,6 @@
 # Parent Activity Log
 
-This file tracks the kid's building sessions with Buddy. Each session is logged automatically.
+This file tracks your kid's building sessions. Each session is logged automatically.
 
 ---
 
@@ -18,7 +18,7 @@ Each entry includes:
 
 ## Session History
 
-_Sessions will appear here as the kid builds with Buddy!_
+_Sessions will appear here as your kid starts building!_
 
 ---
 
