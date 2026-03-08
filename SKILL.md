@@ -87,13 +87,41 @@ Gently redirect with a fun alternative:
 
 - Generate a complete, working HTML file in under 30 seconds
 - Use templates from `/templates/` as starting points
-- Save to `~/tiny-builder/projects/[project-name].html`
 - Make it colorful, big buttons, touch-friendly
 
-**Immediately after creating it:**
-> "🎉 AMAZING! You just built a [star catching game]!  
-> Open it by double-clicking: `~/tiny-builder/projects/star-catcher.html`  
-> It should open in your browser!"
+**Delivery — use gui.new for instant playable links:**
+
+```javascript
+// Install: npm install gui-new (should already be available)
+import { createGui } from 'gui-new'
+const gui = createGui()
+
+// Create the canvas and get a shareable link
+const canvas = await gui.create({
+  title: 'Star Catcher Game ⭐',
+  html: gameHtml  // your generated HTML string
+})
+
+// canvas.url = "https://gui.new/abc123xyz"
+// canvas.id and canvas.edit_token — save these for updates!
+```
+
+**After creating, send the link:**
+> "🎉 AMAZING! You just built a star catching game!  
+> Tap this to play it: [gui.new link]  
+> ⭐"
+
+**For iterations (kid says "add more colors"), UPDATE the same canvas:**
+```javascript
+await gui.update(canvas.id, canvas.edit_token, {
+  html: updatedGameHtml
+})
+```
+> "🎉 Done! Your game just got even cooler! Same link — check it out!"
+
+The kid never needs to open a new link. The page updates live.
+
+**Also save a local backup** to `~/tiny-builder/projects/[project-name].html` so nothing is lost (gui.new canvases expire after 24 hours).
 
 ### Step 4: Offer Next Steps
 
@@ -254,16 +282,17 @@ They wanted to build a game. We made a star-catching game together. the kid aske
 ### Tool Restrictions:
 ✅ **ALLOWED:**
 - `read` — Read template files
-- `write` — Create project HTML files
+- `write` — Create project HTML files and save backups
 - `edit` — Modify projects they're working on
+- `exec` — ONLY for running gui.new SDK (node scripts to create/update canvases)
+- `message` — ONLY for sending gui.new links back to the kid
 
 ❌ **FORBIDDEN:**
 - `web_search` — No internet searches
 - `web_fetch` — No downloading external content
 - `browser` — No web browsing
-- `message` — No messaging people/agents
-- `exec` — No shell commands (except safe ones pre-approved by parent)
 - `process` — No background processes
+- `exec` for anything other than gui.new canvas creation
 
 ### Content Guidelines:
 - No external URLs in generated HTML (no CDN links, no external images)
@@ -324,13 +353,13 @@ Update this after each project. It's their trophy case!
 
 **Agent:** "Great choice! I'm building you a star-catching game right now... ✨"
 
-[Creates `star-catcher.html`]
+[Creates HTML, posts to gui.new, gets link]
 
-**Agent:** "🎉 AMAZING! You just built a star-catching game! Open it by double-clicking:
+**Agent:** "🎉 AMAZING! You just built a star-catching game! Tap here to play it:
 
-`~/tiny-builder/projects/star-catcher.html`
+https://gui.new/abc123xyz
 
-It should open in your browser! Click the falling stars to catch them and watch your score go up! ⭐"
+Catch the falling stars and watch your score go up! ⭐"
 
 **Kid:** [plays game]
 
@@ -346,7 +375,7 @@ It should open in your browser! Click the falling stars to catch them and watch 
 
 [Edits file to add Web Audio beeps]
 
-**Agent:** "🎉 Done! Now it makes a fun 'ding!' sound when you catch a star! Refresh the page and try it! You made it even more awesome! 🎵"
+**Agent:** "🎉 Done! Now it makes a fun 'ding!' sound when you catch a star! Check the same link — it already updated! You made it even more awesome! 🎵"
 
 ---
 
