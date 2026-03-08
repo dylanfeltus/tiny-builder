@@ -1,27 +1,22 @@
-# 🎨 Tiny Builder — Kid-Friendly AI Building Skill
+# 🎨 Tiny Builder
 
-**Tiny Builder** is an OpenClaw agent skill designed for kids ages 5-8. It helps them build games, drawings, animations, and interactive stories through simple choices and instant visual results.
+**What it is:** A kid-first OpenClaw skill that helps children (ages 5-8) build simple HTML games, drawings, animations, and stories.
+**Who it's for:** Kids on tablet/phone with a parent nearby.
 
-A task-oriented building tool that makes creating fun and accessible for young builders. 🛠️✨
+Tiny Builder outputs a shareable `gui.new` link after each build so creations are immediately playable.
 
-> ⚠️ **Experimental Project**
->
-> This is an early experiment in making AI agents safe and useful for kids. We're parents figuring this out in the open, not child development experts.
->
-> **What we believe:**
-> - Kids should be *building* with AI, not just *chatting* with it
-> - Every interaction should produce something tangible (a game, a drawing, a quiz)
-> - Parents should see everything — full transparency, no black boxes
-> - The agent is a tool, not a companion — no emotional bonding, no persona
->
-> **What we're honest about:**
-> - AI with kids is new territory and we don't have all the answers
-> - Content filtering isn't perfect — parental supervision is still important
-> - We've referenced ESRB, UNICEF, and Common Sense Media guidelines but this hasn't been formally audited
-> - This is meant to be used *with* a parent nearby, not as unsupervised screen time
->
-> If you have expertise in child safety, education, or child-AI interaction, we'd love your input. Open an issue or reach out.
+## Quick setup
+```bash
+# 1) Clone and create projects folder
+git clone https://github.com/dylanfeltus/tiny-builder.git ~/tiny-builder
+mkdir -p ~/tiny-builder/projects
 
+# 2) Add skill directory to your OpenClaw agent
+# skills: ["~/tiny-builder"]
+```
+
+## Demo
+Try `examples/catch-game.html` for a ready-made, kid-friendly project.
 
 ---
 
@@ -45,7 +40,7 @@ A task-oriented building tool that makes creating fun and accessible for young b
 - ✅ Celebrates every creation — no judgment, no grades
 
 ### For Parents:
-- ✅ **Safe sandbox** — No internet access, no external content
+- ✅ **Safe sandbox** — No general web access. `gui.new` is used only for publishing playable links.
 - ✅ **Activity log** — See what your kid built and how they're doing
 - ✅ **Content filtering** — Age-appropriate redirects for inappropriate requests
 - ✅ **Screen time that builds** — Not just consuming, but creating!
@@ -172,7 +167,7 @@ Which one sounds fun?"
 
 ### Sandboxed Environment
 - ✅ All projects stay in `~/tiny-builder/projects/`
-- ✅ No internet access (no web_search, web_fetch, external URLs)
+- ✅ No general web access (no web_search, web_fetch, external URLs); only `gui.new` API calls for link publishing
 - ✅ No messaging capabilities
 - ✅ No dangerous system commands
 
