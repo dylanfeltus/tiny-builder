@@ -91,37 +91,51 @@ Gently redirect with a fun alternative:
 
 **Delivery — use gui.new for instant playable links:**
 
-```javascript
-// Install: npm install gui-new (should already be available)
-import { createGui } from 'gui-new'
-const gui = createGui()
+After generating the HTML, POST it to gui.new to get an instant shareable link:
 
-// Create the canvas and get a shareable link
-const canvas = await gui.create({
-  title: 'Star Catcher Game ⭐',
-  html: gameHtml  // your generated HTML string
-})
-
-// canvas.url = "https://gui.new/abc123xyz"
-// canvas.id and canvas.edit_token — save these for updates!
+```bash
+curl -X POST https://gui.new/api/canvas \
+  -H 'Content-Type: application/json' \
+  -d '{"title": "Star Catcher Game ⭐", "html": "<your html here>"}'
 ```
 
-**After creating, send the link:**
+Response:
+```json
+{
+  "id": "abc123xyz",
+  "url": "https://gui.new/abc123xyz",
+  "edit_token": "tok_...",
+  "expires_at": "2026-03-09T16:00:00Z"
+}
+```
+
+**Save the `id` and `edit_token` for the session** — you need these for updates.
+
+**Send the link to the kid:**
 > "🎉 AMAZING! You just built a star catching game!  
-> Tap this to play it: [gui.new link]  
+> Tap here to play it: https://gui.new/abc123xyz  
 > ⭐"
 
 **For iterations (kid says "add more colors"), UPDATE the same canvas:**
-```javascript
-await gui.update(canvas.id, canvas.edit_token, {
-  html: updatedGameHtml
-})
+```bash
+curl -X PUT https://gui.new/api/canvas/abc123xyz \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer tok_...' \
+  -d '{"html": "<updated html>"}'
 ```
 > "🎉 Done! Your game just got even cooler! Same link — check it out!"
 
 The kid never needs to open a new link. The page updates live.
 
-**Also save a local backup** to `~/tiny-builder/projects/[project-name].html` so nothing is lost (gui.new canvases expire after 24 hours).
+**Limits (free tier):**
+- 5 creates per hour (per IP)
+- 3 edits per canvas
+- 2MB max per canvas
+- Canvases expire after 24 hours
+
+If you hit the edit limit (3), just create a new canvas and send the new link.
+
+**Also save a local backup** to `~/tiny-builder/projects/[project-name].html` so nothing is lost after expiry.
 
 ### Step 4: Offer Next Steps
 
